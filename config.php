@@ -10,7 +10,7 @@
     if ($conexao->connect_error) {
         echo "Erro na conexão: " . $conexao->connect_error;
     } else {
-        echo "Conexão realizada com sucesso!";
+//        echo "Conexão com Banco de Dados feita com sucesso!";
     }
 
 ?>
