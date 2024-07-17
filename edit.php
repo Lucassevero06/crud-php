@@ -26,6 +26,8 @@
         } else {
             header('Location: sistema.php');
         }
+    } else {
+        header('Location: sistema.php');
     }
 ?>
 
@@ -102,7 +104,7 @@
             font-size: 15px;
         }
 
-        #submit {
+        #update {
             background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
             width: 100%;
             border: none;
@@ -113,7 +115,7 @@
             border-radius: 10px;
         }
 
-        #submit:hover {
+        #update:hover {
             background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195));
         }
     </style>
@@ -121,7 +123,7 @@
 <body>
 <a href="sistema.php">Voltar</a>
 <div class="box">
-        <form action="formulario.php" method="post">
+        <form action="saveEdit.php" method="post">
             <fieldset>
                 <legend><strong>Editar Usuario</strong></legend>
                 <br>
@@ -132,7 +134,7 @@
                 <br>
                 <br>
                 <div class="inputBox">
-                    <input value="<?= $senha ?>" type="password" name="senha" id="senha" class="inputUser" required>
+                    <input value="<?= $senha ?>" type="text" name="senha" id="senha" class="inputUser" required>
                     <label for="senha" class="labelInput">Senha</label>
                 </div>
                 <br>
@@ -181,7 +183,8 @@
                 </div>
                 <br>
                 <br>
-                <input type="submit" name="submit" id="submit" value="Enviar">
+                <input type="hidden" name="id" value="<?= $id ?>">
+                <input type="submit" name="update" id="update" value="Enviar">
             </fieldset>
         </form>
     </div>
