@@ -1,9 +1,3 @@
-<?php
-
-
-
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,7 +9,8 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
+            background: rgb(0,255,207);
+            background: linear-gradient(243deg, rgba(0,255,207,1) 20%, rgba(20,255,0,1) 100%);
             text-align: center;
             color: white;
         }
@@ -33,13 +28,13 @@
         a {
             text-decoration: none;
             color: white;
-            border: 3px solid dodgerblue;
+            border: 3px solid rgba(0,255,207,1);
             border-radius: 10px;
             padding: 10px;
         }
 
         a:hover {
-            background-color: dodgerblue;
+            background-color: rgba(0,255,207,1);
         }
 
     </style>
