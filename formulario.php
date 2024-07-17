@@ -45,11 +45,24 @@
             padding: 30px;
             border-radius: 15px;
             text-align: center;
+            width: 35%;
         }
 
         .boxImg {
             width: 50%;
             border-left: 1px solid white;
+        }
+
+        .boxImg img {
+            width: 100%;
+        }
+        
+        .boxRadio {
+            text-align: left;
+        }
+
+        .boxData {
+            text-align: left;
         }
 
         .inputBox {
@@ -65,27 +78,9 @@
             font-size: 15px;
             width: 100%;
             letter-spacing: 2px;
-            padding: 5px;
+            padding: 7px;
         }
 
-        .labelInput {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            pointer-events: none;
-            transition: .3s;
-        }
-
-        .inputUser:focus ~ .labelInput,
-        .inputUser:valid ~ .labelInput {
-            top: -20px;
-            font-size: 15px;
-            color: rgba(20,255,0,1);
-        }
-
-        .inputRadio {
-            text-align: left;
-        }
 
         #data_nascimento {
             border: none;
@@ -118,25 +113,21 @@
             <form action="formulario.php" method="post">
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome completo</label>
+                    <input placeholder="Seu nome" type="text" name="nome" id="nome" class="inputUser" required>
                 </div>
                 <br>
                 <div class="inputBox">
-                    <input type="password" name="senha" id="senha" class="inputUser" required>
-                    <label for="senha" class="labelInput">Senha</label>
+                    <input placeholder="Sua senha" type="password" name="senha" id="senha" class="inputUser" required>
                 </div>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="email" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput">Email</label>
+                    <input placeholder="example@gmail.com" type="text" name="email" id="email" class="inputUser" required>
                 </div>
                 <br>
                 <div class="inputBox">
-                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
-                    <label for="telefone" class="labelInput">Telefone</label>
+                    <input placeholder="69 99999-9999" type="tel" name="telefone" id="telefone" class="inputUser" required>
                 </div>
-                <div class="inputRadio">
+                <div class="boxRadio">
                     <p>Sexo:</p>
                     <input type="radio" name="genero" id="feminino" value="feminino" required>
                     <label for="feminino">Feminino</label>
@@ -148,29 +139,26 @@
                     <label for="outro">Outro</label>
                 </div>
                 <br>
-                <br>
-                    <label for="data_nascimento"><strong>Data de Nascimento</strong></label>
-                    <input type="date" name="data_nascimento" id="data_nascimento" class="date-picker" required>
-                <br>
+                    <div class="boxRadio">
+                        <label for="data_nascimento"><strong>Data de Nascimento</strong></label>
+                        <input type="date" name="data_nascimento" id="data_nascimento" class="date-picker" required>
+                    </div>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="cidade" id="cidade" class="inputUser" required>
-                    <label for="cidade" class="labelInput">Cidade</label>
+                <input placeholder="Cidade" type="text" name="cidade" id="cidade" class="inputUser" required>
                 </div>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="estado" id="estado" class="inputUser" required>
-                    <label for="estado" class="labelInput">Estado</label>
+                    <input placeholder="Estado" type="text" name="estado" id="estado" class="inputUser" required>
                 </div>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="endereco" id="endereco" class="inputUser" required>
-                    <label for="endereco" class="labelInput">Endereço</label>
+                    <input placeholder="Endereço" type="text" name="endereco" id="endereco" class="inputUser" required>
                 </div>
                 <br>
                 <input type="submit" name="submit" id="submit" value="Enviar">
             </form>
-            <p>Já tem uma conta? <a href="formulario.php">Clique aqui</a></p>
+            <p>Já tem uma conta? <a href="login.php">Clique aqui</a></p>
         </div>
         <div class="boxImg">
             <img src="./undraw_hello_re_3evm.svg" alt="">
