@@ -73,6 +73,7 @@
                 <br>
                 <input class="inputSubmit" type="submit" name="submit" value="Enviar">
             </form>
+            <p>Ainda não tem uma conta? <a href="formulario.php">Clique aqui</a></p>
         </div>
     </div>
 </body>
