@@ -10,17 +10,22 @@
 
         $result = $conexao->query($sqlSelect);
 
-        print_r($result);
+        if($result->num_rows > 0) {
 
-        $nome = $_POST['nome'];
-        $senha = $_POST['senha'];
-        $email = $_POST['email'];
-        $telefone = $_POST['telefone'];
-        $sexo = $_POST['genero'];
-        $data_nasc = $_POST['data_nascimento'];
-        $cidade = $_POST['cidade'];
-        $estado = $_POST['estado'];
-        $endereco = $_POST['endereco'];
+            while($user_data = mysqli_fetch_assoc($result)) {
+                $nome = $user_data['nome'];
+                $senha = $user_data['senha'];
+                $email = $user_data['email'];
+                $telefone = $user_data['telefone'];
+                $sexo = $user_data['sexo'];
+                $data_nasc = $user_data['data_nasc'];
+                $cidade = $user_data['cidade'];
+                $estado = $user_data['estado'];
+                $endereco = $user_data['endereco'];
+            }
+        } else {
+            header('Location: sistema.php');
+        }
     }
 ?>
 
@@ -121,57 +126,57 @@
                 <legend><strong>Editar Usuario</strong></legend>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <input value="<?= $nome ?>" type="text" name="nome" id="nome" class="inputUser" required>
                     <label for="nome" class="labelInput">Nome completo</label>
                 </div>
                 <br>
                 <br>
                 <div class="inputBox">
-                    <input type="password" name="senha" id="senha" class="inputUser" required>
+                    <input value="<?= $senha ?>" type="password" name="senha" id="senha" class="inputUser" required>
                     <label for="senha" class="labelInput">Senha</label>
                 </div>
                 <br>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="email" id="email" class="inputUser" required>
+                    <input value="<?= $email ?>" type="text" name="email" id="email" class="inputUser" required>
                     <label for="email" class="labelInput">Email</label>
                 </div>
                 <br>
                 <br>
                 <div class="inputBox">
-                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                    <input value="<?= $telefone ?>" type="tel" name="telefone" id="telefone" class="inputUser" required>
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
                 <p>Sexo:</p>
-                <input type="radio" name="genero" id="feminino" value="feminino" required>
+                <input <?= $sexo == 'feminino' ? 'checked' : '' ?> type="radio" name="genero" id="feminino" value="feminino" required>
                 <label for="feminino">Feminino</label>
                 <br>
-                <input type="radio" name="genero" id="masculino" value="masculino" required>
+                <input <?= $sexo == 'masculino' ? 'checked' : '' ?> type="radio" name="genero" id="masculino" value="masculino" required>
                 <label for="masculino">Masculino</label>
                 <br>
-                <input type="radio" name="genero" id="outro" value="outro" required>
+                <input <?= $sexo == 'outro' ? 'checked' : '' ?> type="radio" name="genero" id="outro" value="outro" required>
                 <label for="outro">Outro</label>
                 <br>
                 <br>
                     <label for="data_nascimento"><strong>Data de Nascimento</strong></label>
-                    <input type="date" name="data_nascimento" id="data_nascimento" required>
+                    <input type="date" name="data_nascimento" id="data_nascimento" value="<?= $data_nasc ?>" required>
                 <br>
                 <br>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="cidade" id="cidade" class="inputUser" required>
+                    <input value="<?= $cidade ?>" type="text" name="cidade" id="cidade" class="inputUser" required>
                     <label for="cidade" class="labelInput">Cidade</label>
                 </div>
                 <br>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="estado" id="estado" class="inputUser" required>
+                    <input value="<?= $estado ?>" type="text" name="estado" id="estado" class="inputUser" required>
                     <label for="estado" class="labelInput">Estado</label>
                 </div>
                 <br>
                 <br>
                 <div class="inputBox">
-                    <input type="text" name="endereco" id="endereco" class="inputUser" required>
+                    <input value="<?= $endereco ?>" type="text" name="endereco" id="endereco" class="inputUser" required>
                     <label for="endereco" class="labelInput">Endereço</label>
                 </div>
                 <br>
