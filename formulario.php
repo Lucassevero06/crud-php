@@ -19,7 +19,6 @@
         header('Location: login.php');
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,31 +28,28 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: rgb(0,255,207);
-            background: linear-gradient(243deg, rgba(0,255,207,1) 20%, rgba(20,255,0,1) 100%);
+            background: rgba(20,255,0,1) ;
+            background: linear-gradient(243deg, rgba(20,255,0,1) 20%, rgba(0,255,207,1) 100%);
         }
 
         .box {
-            color: black;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgb(0, 0, 0, 0.6);
-            padding: 15px;
-            border-radius: 15px;
-            width: 350px;
-        }
-        fieldset {
-            border: 3px solid rgba(20,255,0,1);
+            height: 100vh;
+            max-width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
         }
 
-        legend {
-            border: 1px solid rgba(20,255,0,1);
-            padding: 10px;
+        .boxForm {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
             text-align: center;
-            background-color: rgba(20,255,0,1);
-            border-radius: 8px;
+        }
+
+        .boxImg {
+            width: 50%;
+            border-left: 1px solid white;
         }
 
         .inputBox {
@@ -65,10 +61,11 @@
             border: none;
             border-bottom: 1px solid white;
             outline: none;
-            color: white;
+            color: black;
             font-size: 15px;
             width: 100%;
             letter-spacing: 2px;
+            padding: 5px;
         }
 
         .labelInput {
@@ -82,8 +79,12 @@
         .inputUser:focus ~ .labelInput,
         .inputUser:valid ~ .labelInput {
             top: -20px;
-            font-size: 12px;
+            font-size: 15px;
             color: rgba(20,255,0,1);
+        }
+
+        .inputRadio {
+            text-align: left;
         }
 
         #data_nascimento {
@@ -95,64 +96,61 @@
         }
 
         #submit {
-            background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
-            width: 100%;
+            background-color:  rgba(20,255,0,1);
             border: none;
             padding: 15px;
-            color: white;
-            font-size: 15px;
-            cursor: pointer;
+            width: 100%;
             border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
         }
 
         #submit:hover {
-            background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195));
+            background-color: rgba(0,255,207,1);
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-<a href="home.php">Voltar</a>
-<div class="box">
-        <form action="formulario.php" method="post">
-            <fieldset>
-                <legend><strong>Formulário de Usuarios</strong></legend>
+    <div class="box">
+        <div class="boxForm">
+            <form action="formulario.php" method="post">
                 <br>
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" required>
                     <label for="nome" class="labelInput">Nome completo</label>
                 </div>
                 <br>
-                <br>
                 <div class="inputBox">
                     <input type="password" name="senha" id="senha" class="inputUser" required>
                     <label for="senha" class="labelInput">Senha</label>
                 </div>
-                <br>
                 <br>
                 <div class="inputBox">
                     <input type="text" name="email" id="email" class="inputUser" required>
                     <label for="email" class="labelInput">Email</label>
                 </div>
                 <br>
-                <br>
                 <div class="inputBox">
                     <input type="tel" name="telefone" id="telefone" class="inputUser" required>
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
-                <p>Sexo:</p>
-                <input type="radio" name="genero" id="feminino" value="feminino" required>
-                <label for="feminino">Feminino</label>
-                <br>
-                <input type="radio" name="genero" id="masculino" value="masculino" required>
-                <label for="masculino">Masculino</label>
-                <br>
-                <input type="radio" name="genero" id="outro" value="outro" required>
-                <label for="outro">Outro</label>
+                <div class="inputRadio">
+                    <p>Sexo:</p>
+                    <input type="radio" name="genero" id="feminino" value="feminino" required>
+                    <label for="feminino">Feminino</label>
+                    <br>
+                    <input type="radio" name="genero" id="masculino" value="masculino" required>
+                    <label for="masculino">Masculino</label>
+                    <br>
+                    <input type="radio" name="genero" id="outro" value="outro" required>
+                    <label for="outro">Outro</label>
+                </div>
                 <br>
                 <br>
                     <label for="data_nascimento"><strong>Data de Nascimento</strong></label>
-                    <input type="date" name="data_nascimento" id="data_nascimento" required>
-                <br>
+                    <input type="date" name="data_nascimento" id="data_nascimento" class="date-picker" required>
                 <br>
                 <br>
                 <div class="inputBox">
@@ -160,22 +158,23 @@
                     <label for="cidade" class="labelInput">Cidade</label>
                 </div>
                 <br>
-                <br>
                 <div class="inputBox">
                     <input type="text" name="estado" id="estado" class="inputUser" required>
                     <label for="estado" class="labelInput">Estado</label>
                 </div>
-                <br>
                 <br>
                 <div class="inputBox">
                     <input type="text" name="endereco" id="endereco" class="inputUser" required>
                     <label for="endereco" class="labelInput">Endereço</label>
                 </div>
                 <br>
-                <br>
                 <input type="submit" name="submit" id="submit" value="Enviar">
-            </fieldset>
-        </form>
+            </form>
+            <p>Já tem uma conta? <a href="formulario.php">Clique aqui</a></p>
+        </div>
+        <div class="boxImg">
+            <img src="./undraw_hello_re_3evm.svg" alt="">
+        </div>
     </div>
 </body>
 </html>
