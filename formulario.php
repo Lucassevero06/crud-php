@@ -29,11 +29,12 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
+            background: rgb(0,255,207);
+            background: linear-gradient(243deg, rgba(0,255,207,1) 20%, rgba(20,255,0,1) 100%);
         }
 
         .box {
-            color: white;
+            color: black;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -44,14 +45,14 @@
             width: 350px;
         }
         fieldset {
-            border: 3px solid dodgerblue;
+            border: 3px solid rgba(20,255,0,1);
         }
 
         legend {
-            border: 1px solid dodgerblue;
+            border: 1px solid rgba(20,255,0,1);
             padding: 10px;
             text-align: center;
-            background-color: dodgerblue;
+            background-color: rgba(20,255,0,1);
             border-radius: 8px;
         }
 
@@ -82,7 +83,7 @@
         .inputUser:valid ~ .labelInput {
             top: -20px;
             font-size: 12px;
-            color: dodgerblue;
+            color: rgba(20,255,0,1);
         }
 
         #data_nascimento {
