@@ -1,8 +1,16 @@
 <?php
 
-    if(isset($_POST['submit'])) {
+    if(!empty($_GET['id'])) {
 
         include_once('config.php');
+
+        $id = $_GET['id'];
+
+        $sqlSelect = "SELECT * FROM usuarios WHERE id = $id";
+
+        $result = $conexao->query($sqlSelect);
+
+        print_r($result);
 
         $nome = $_POST['nome'];
         $senha = $_POST['senha'];
@@ -13,10 +21,6 @@
         $cidade = $_POST['cidade'];
         $estado = $_POST['estado'];
         $endereco = $_POST['endereco'];
-
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,cidade,estado,endereco) VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nasc','$cidade','$estado','$endereco')");
-
-        header('Location: login.php');
     }
 ?>
 
@@ -110,11 +114,11 @@
     </style>
 </head>
 <body>
-<a href="home.php">Voltar</a>
+<a href="sistema.php">Voltar</a>
 <div class="box">
         <form action="formulario.php" method="post">
             <fieldset>
-                <legend><strong>Formulário de Usuarios</strong></legend>
+                <legend><strong>Editar Usuario</strong></legend>
                 <br>
                 <div class="inputBox">
                     <input type="text" name="nome" id="nome" class="inputUser" required>
