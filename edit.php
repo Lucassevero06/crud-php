@@ -19,9 +19,6 @@
                 $telefone = $user_data['telefone'];
                 $sexo = $user_data['sexo'];
                 $data_nasc = $user_data['data_nasc'];
-                $cidade = $user_data['cidade'];
-                $estado = $user_data['estado'];
-                $endereco = $user_data['endereco'];
             }
         } else {
             header('Location: sistema.php');
@@ -162,26 +159,6 @@
                 <br>
                     <label for="data_nascimento"><strong>Data de Nascimento</strong></label>
                     <input type="date" name="data_nascimento" id="data_nascimento" value="<?= $data_nasc ?>" required>
-                <br>
-                <br>
-                <br>
-                <div class="inputBox">
-                    <input value="<?= $cidade ?>" type="text" name="cidade" id="cidade" class="inputUser" required>
-                    <label for="cidade" class="labelInput">Cidade</label>
-                </div>
-                <br>
-                <br>
-                <div class="inputBox">
-                    <input value="<?= $estado ?>" type="text" name="estado" id="estado" class="inputUser" required>
-                    <label for="estado" class="labelInput">Estado</label>
-                </div>
-                <br>
-                <br>
-                <div class="inputBox">
-                    <input value="<?= $endereco ?>" type="text" name="endereco" id="endereco" class="inputUser" required>
-                    <label for="endereco" class="labelInput">Endereço</label>
-                </div>
-                <br>
                 <br>
                 <input type="hidden" name="id" value="<?= $id ?>">
                 <input type="submit" name="update" id="update" value="Enviar">

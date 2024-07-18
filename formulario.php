@@ -10,11 +10,8 @@
         $telefone = $_POST['telefone'];
         $sexo = $_POST['genero'];
         $data_nasc = $_POST['data_nascimento'];
-        $cidade = $_POST['cidade'];
-        $estado = $_POST['estado'];
-        $endereco = $_POST['endereco'];
 
-        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc,cidade,estado,endereco) VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nasc','$cidade','$estado','$endereco')");
+        $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,senha,email,telefone,sexo,data_nasc) VALUES ('$nome','$senha','$email','$telefone','$sexo','$data_nasc')");
 
         header('Location: login.php');
     }
@@ -50,11 +47,16 @@
 
         .boxImg {
             width: 50%;
-            border-left: 1px solid white;
         }
 
         .boxImg img {
             width: 100%;
+        }
+
+        .boxEspacamento {
+            height: 80vh;
+            width: 1px;
+            background-color: white;
         }
         
         .boxRadio {
@@ -144,21 +146,12 @@
                         <input type="date" name="data_nascimento" id="data_nascimento" class="date-picker" required>
                     </div>
                 <br>
-                <div class="inputBox">
-                <input placeholder="Cidade" type="text" name="cidade" id="cidade" class="inputUser" required>
-                </div>
-                <br>
-                <div class="inputBox">
-                    <input placeholder="Estado" type="text" name="estado" id="estado" class="inputUser" required>
-                </div>
-                <br>
-                <div class="inputBox">
-                    <input placeholder="Endereço" type="text" name="endereco" id="endereco" class="inputUser" required>
-                </div>
-                <br>
                 <input type="submit" name="submit" id="submit" value="Enviar">
             </form>
             <p>Já tem uma conta? <a href="login.php">Clique aqui</a></p>
+        </div>
+        <div class="boxEspacamento">
+
         </div>
         <div class="boxImg">
             <img src="./undraw_hello_re_3evm.svg" alt="">

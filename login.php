@@ -29,7 +29,12 @@
 
         .boxImg {
             width: 50%;
-            border-right: 1px solid white;
+        }
+
+        .boxEspacamento {
+            height: 80vh;
+            width: 1px;
+            background-color: white;
         }
 
         input {
@@ -61,6 +66,9 @@
     <div class="box">
         <div class="boxImg">
             <img src="./undraw_mobile_user_re_xta4.svg" alt="Foto Login">
+        </div>
+        <div class="boxEspacamento">
+
         </div>
         <div class="boxForm">
             <h1>Login</h1>
