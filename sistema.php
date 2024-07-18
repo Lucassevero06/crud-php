@@ -12,7 +12,7 @@
 
     if(!empty($_GET['search'])) {
         $data = $_GET['search'];
-        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' OR nome LIKE '%$data%' OR email LIKE '%$data%' ORDER BY id DESC";
+        $sql = "SELECT * FROM usuarios WHERE id LIKE '%$data%' OR nome LIKE '%$data%' OR email LIKE '%$data%' OR sexo LIKE '%$data%' ORDER BY id DESC";
     } else {
         $sql = "SELECT * FROM usuarios ORDER BY id DESC";
     }
@@ -32,32 +32,24 @@
     <title>Sistema de Usuarios</title>
     <style>
         body {
-            background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
+            background: rgba(20,255,0,1) ;
+            background: linear-gradient(243deg, rgba(20,255,0,1) 20%, rgba(0,255,207,1) 100%);
             color: white;
             text-align: center;
-        }
-
-        .table-bg {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 15px;
-
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a href="#" class="navbar-brand">Sistema</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="d-flex">
-            <a href="sair.php" class="btn btn-danger me-5">Sair</a>
-        </div>
-    </nav>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-white">
+            <div class="container-fluid">
+                <a href="#" class="text-black navbar-brand">Sistema</a>
+            </div>
+            <div class="d-flex">
+                <a href="sair.php" class="btn btn-danger me-5">Sair</a>
+            </div>
+        </nav>
     <br>
-    <?= "<h1>Bem Vindo <strong>$logado</strong></h1>" ?>
+    
     <br>
     <div style="max-width: 500px" class="container d-flex gap-1">
         <input type="search" name="pesquisar" id="pesquisar" class="form-control" placeholder="Pesquisar">
@@ -68,12 +60,11 @@
         </button>
     </div>
     <div class="m-5">
-        <table class="table text-white table-bg">
+        <table class="container table-bordered w-100 table text-white">
             <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Senha</th>
                 <th scope="col">Email</th>
                 <th scope="col">Telefone</th>
                 <th scope="col">Sexo</th>
@@ -87,7 +78,6 @@
                     echo "<tr>";
                         echo "<td>" . $user_data['id'] . "</td>";
                         echo "<td>" . $user_data['nome'] . "</td>";
-                        echo "<td>" . $user_data['senha'] . "</td>";
                         echo "<td>" . $user_data['email'] . "</td>";
                         echo "<td>" . $user_data['telefone'] . "</td>";
                         echo "<td>" . $user_data['sexo'] . "</td>";

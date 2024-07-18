@@ -37,30 +37,32 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
+            background: rgba(20,255,0,1) ;
+            background: linear-gradient(243deg, rgba(20,255,0,1) 20%, rgba(0,255,207,1) 100%);
         }
 
         .box {
-            color: white;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgb(0, 0, 0, 0.6);
-            padding: 15px;
-            border-radius: 15px;
-            width: 350px;
-        }
-        fieldset {
-            border: 3px solid dodgerblue;
+            height: 100vh;
+            max-width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
         }
 
-        legend {
-            border: 1px solid dodgerblue;
-            padding: 10px;
+        .boxForm {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
             text-align: center;
-            background-color: dodgerblue;
-            border-radius: 8px;
+            width: 35%;
+        }
+        
+        .boxRadio {
+            text-align: left;
+        }
+
+        .boxData {
+            text-align: left;
         }
 
         .inputBox {
@@ -72,26 +74,13 @@
             border: none;
             border-bottom: 1px solid white;
             outline: none;
-            color: white;
+            color: black;
             font-size: 15px;
             width: 100%;
             letter-spacing: 2px;
+            padding: 7px;
         }
 
-        .labelInput {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            pointer-events: none;
-            transition: .3s;
-        }
-
-        .inputUser:focus ~ .labelInput,
-        .inputUser:valid ~ .labelInput {
-            top: -20px;
-            font-size: 12px;
-            color: dodgerblue;
-        }
 
         #data_nascimento {
             border: none;
@@ -102,68 +91,65 @@
         }
 
         #update {
-            background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
-            width: 100%;
+            background-color:  rgba(20,255,0,1);
             border: none;
             padding: 15px;
-            color: white;
-            font-size: 15px;
-            cursor: pointer;
+            width: 100%;
             border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
         }
 
         #update:hover {
-            background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195));
+            background-color: rgba(0,255,207,1);
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-<a href="sistema.php">Voltar</a>
 <div class="box">
-        <form action="saveEdit.php" method="post">
-            <fieldset>
-                <legend><strong>Editar Usuario</strong></legend>
+        <div class="boxForm">
+            <form action="saveEdit.php" method="post">
                 <br>
                 <div class="inputBox">
-                    <input value="<?= $nome ?>" type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome" class="labelInput">Nome completo</label>
+                    <input value="<?= $nome; ?>" placeholder="Seu nome" type="text" name="nome" id="nome" class="inputUser" required>
                 </div>
-                <br>
                 <br>
                 <div class="inputBox">
-                    <input value="<?= $senha ?>" type="text" name="senha" id="senha" class="inputUser" required>
-                    <label for="senha" class="labelInput">Senha</label>
+                    <input value="<?= $senha; ?>" placeholder="Sua senha" type="password" name="senha" id="senha" class="inputUser" required>
                 </div>
-                <br>
                 <br>
                 <div class="inputBox">
-                    <input value="<?= $email ?>" type="text" name="email" id="email" class="inputUser" required>
-                    <label for="email" class="labelInput">Email</label>
+                    <input value="<?= $email; ?>" placeholder="example@gmail.com" type="text" name="email" id="email" class="inputUser" required>
                 </div>
-                <br>
                 <br>
                 <div class="inputBox">
-                    <input value="<?= $telefone ?>" type="tel" name="telefone" id="telefone" class="inputUser" required>
-                    <label for="telefone" class="labelInput">Telefone</label>
+                    <input value="<?= $telefone; ?>" placeholder="69 99999-9999" type="tel" name="telefone" id="telefone" class="inputUser" required>
                 </div>
-                <p>Sexo:</p>
-                <input <?= $sexo == 'feminino' ? 'checked' : '' ?> type="radio" name="genero" id="feminino" value="feminino" required>
-                <label for="feminino">Feminino</label>
+                <div class="boxRadio">
+                    <p>Sexo:</p>
+
+                    <input <?= $sexo == 'feminino' ? 'checked' : '' ?>  type="radio" name="genero" id="feminino" value="feminino" required>
+                    <label for="feminino">Feminino</label>
+                    <br>
+                    <input <?= $sexo == 'masculino' ? 'checked' : '' ?> type="radio" name="genero" id="masculino" value="masculino" required>
+                    <label for="masculino">Masculino</label>
+                    <br>
+                    <input <?= $sexo == 'outro' ? 'checked' : '' ?> type="radio" name="genero" id="outro" value="outro" required>
+                    <label for="outro">Outro</label>
+                </div>
                 <br>
-                <input <?= $sexo == 'masculino' ? 'checked' : '' ?> type="radio" name="genero" id="masculino" value="masculino" required>
-                <label for="masculino">Masculino</label>
-                <br>
-                <input <?= $sexo == 'outro' ? 'checked' : '' ?> type="radio" name="genero" id="outro" value="outro" required>
-                <label for="outro">Outro</label>
-                <br>
-                <br>
-                    <label for="data_nascimento"><strong>Data de Nascimento</strong></label>
-                    <input type="date" name="data_nascimento" id="data_nascimento" value="<?= $data_nasc ?>" required>
+                    <div class="boxRadio">
+                        <label for="data_nascimento"><strong>Data de Nascimento</strong></label>
+                        <input value="<?= $data_nasc; ?>" type="date" name="data_nascimento" id="data_nascimento" class="date-picker" required>
+                    </div>
                 <br>
                 <input type="hidden" name="id" value="<?= $id ?>">
                 <input type="submit" name="update" id="update" value="Enviar">
-            </fieldset>
-        </form>
+            </form>
+            <p>Voltar à página inicial? <a href="sistema.php">Clique aqui</a></p>
+        </div>
     </div>
 </body>
 </html>
